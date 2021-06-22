@@ -1,0 +1,28 @@
+.app-navbar {
+    font-size: 1.5rem;
+    padding-top: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.app-container {
+    background-image: url(../images/sunrise.jpeg);
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size:  cover;
+    background-position: center center;  
+    height: 400px;
+
+    .app-intro{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .app-intro-line {
+            font-size: 3rem;
+            margin-top: 5rem;
+        }
+    }
+}
+.app-posts {
+    display: flex;
+    flex-direction: column;
+}
