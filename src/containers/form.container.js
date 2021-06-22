@@ -1,6 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch} from 'react-redux';
-import { getPosts } from '../actions/posts';
+import React, { useState} from 'react';
 
 import  Posts from '../components/posts/posts';
 import  Form  from '../components/form/form';
