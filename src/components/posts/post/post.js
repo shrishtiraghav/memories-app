@@ -15,7 +15,7 @@ const Post = ({post, setCurrentId}) => {
       </div>
       <div className="app-overlay-3" onClick={() => setCurrentId(post._id)}><i class="fa fa-pencil"></i></div>
       <div className="app-media">
-        <img src={post.selectedFile} className="app-media"></img>
+        <img src={post.selectedFile} className="app-media" alt=""></img>
       </div>
       <div className="app-details">
         <div>{post.tags.map((tag) => `#${tag}`)}</div>
