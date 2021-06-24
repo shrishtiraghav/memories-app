@@ -8,9 +8,10 @@ import "./index.css";
 
 const App = () => {
     const dispatch = useDispatch();
+    const page = 1;
 
     useEffect(() => {
-        dispatch(getPosts());
+        dispatch(getPosts(page));
     },[dispatch])
 
     return(

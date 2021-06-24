@@ -5,11 +5,11 @@ import Post from './post/post';
 import "./posts.styles.scss";
 
 const Posts = ( {currentId ,setCurrentId}) => {
-    const posts = useSelector((state) => state.posts);
-    console.log(posts);
+    const {posts} = useSelector((state) => state.posts);
+    
     return (
    <div>{
-       posts.length ? <div className="app-post-card">
+       posts?.length ? <div className="app-post-card">
            {posts.map((post) => (
                <div key={post._id} className="app-post-container">
                    <Post post={post} setCurrentId={setCurrentId}/>
