@@ -10,12 +10,15 @@ const reducers = (state = [] , action) => {
                 ...state, 
                 posts: action.payload.data, 
                 currentPage: action.payload.currentPage,
-                numberOfPages: action.payload.numberOfPages
-
+                numberOfPages: action.payload.numberOfPages,
+                Error: false
             };
         
         case 'CREATE':
             return [...state.posts , action.payload];
+
+        case 'CREATE_ERROR':
+            return {...state , Error : action.payload};
 
         default:
             return state;

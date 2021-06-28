@@ -8,8 +8,8 @@ import "./form.styles.scss";
 
 const Form = ( {currentId,setCurrentId} ) => {
     const dispatch = useDispatch();
-    const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId): null);
-
+    const post = useSelector((state) => currentId ? state.posts.posts.find((p) => p._id === currentId): null);
+    const State = useSelector((state) => state);
     const [postData , setPostData] = useState({
         creator: '',
         title: '',
@@ -17,10 +17,12 @@ const Form = ( {currentId,setCurrentId} ) => {
         tags: '',
         selectedFile: ''
     })
-
+    
     useEffect(() => {
+        console.log(State)
         if(post) setPostData(post);
-    },[post])
+        
+    },[post,State])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,6 +30,7 @@ const Form = ( {currentId,setCurrentId} ) => {
         if(currentId){
             console.log(currentId)
             dispatch(updatePost(currentId,postData))
+            setCurrentId(false);
         }
         else{
             dispatch(createPost(postData))
@@ -38,6 +41,7 @@ const Form = ( {currentId,setCurrentId} ) => {
         
         <div className="app-form-container">
             <div className="app-form-title">Creating a memory</div>
+            {State.posts.Error?.length ? <div className="app-form-warning"><i class="fa fa-exclamation-triangle"></i>  All fields are mandatory</div> : null}
             <form onSubmit = {handleSubmit} className="app-form">
                 <input placeholder="Creator" className="app-input-field" value={postData.creator} onChange={(e) => setPostData({...postData , creator: e.target.value})}></input>
                 <input placeholder="Title" className="app-input-field" value={postData.title} onChange={(e) => setPostData({...postData , title: e.target.value})}></input>
